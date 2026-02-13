@@ -1,0 +1,92 @@
+:root {
+  color-scheme: dark;
+  --bg: #121212;
+  --panel: #1c1c1c;
+  --cell: #2f2f2f;
+  --snake: #5edc87;
+  --snake-head: #8ef5af;
+  --food: #ff6b6b;
+  --text: #e8e8e8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Arial, sans-serif;
+}
+
+.game {
+  width: min(92vw, 500px);
+  background: var(--panel);
+  border: 1px solid #333;
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.header,
+.controls,
+.mobile-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.header {
+  margin-bottom: 12px;
+}
+
+.grid {
+  width: 100%;
+  aspect-ratio: 1;
+  display: grid;
+  grid-template-columns: repeat(var(--grid-size), 1fr);
+  gap: 2px;
+  margin-bottom: 12px;
+}
+
+.cell {
+  background: var(--cell);
+  border-radius: 2px;
+}
+
+.cell.snake {
+  background: var(--snake);
+}
+
+.cell.head {
+  background: var(--snake-head);
+}
+
+.cell.food {
+  background: var(--food);
+}
+
+button {
+  border: 1px solid #444;
+  background: #292929;
+  color: var(--text);
+  border-radius: 6px;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+.mobile-controls {
+  margin-top: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+@media (min-width: 768px) {
+  .mobile-controls {
+    display: none;
+  }
+}
